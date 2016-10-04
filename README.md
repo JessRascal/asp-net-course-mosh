@@ -10,7 +10,7 @@ app.service('modelManager', function (modelService) {
     return modelService.cartoonArray;
 };
 
-  this.getCartoon = {};
+    this.getCartoon = {};
   
   });
   
