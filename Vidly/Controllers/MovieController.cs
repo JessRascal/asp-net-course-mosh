@@ -8,8 +8,24 @@ using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
-    public class MoviesController : Controller
+    public class MovieController : Controller
     {
+        public ActionResult Index()
+        {
+            var movies = GetMovies();
+
+            return View(movies);
+        }
+
+        private IEnumerable<Movie> GetMovies()
+        {
+            return new List<Movie>
+            {
+                new Movie {Id = 1, Name = "Alfie"},
+                new Movie {Id = 2, Name = "Good Will Hunting"}
+            };
+        }
+
         // GET: Movies/Random
         public ActionResult Random()
         {
@@ -17,8 +33,8 @@ namespace Vidly.Controllers
 
             var customers = new List<Customer>
             {
-                new Customer { Name = "Customer 1" },
-                new Customer { Name = "Customer 2" }
+                new Customer {Name = "Customer 1"},
+                new Customer {Name = "Customer 2"}
             };
 
             var viewModel = new RandomMovieViewModel
@@ -29,6 +45,5 @@ namespace Vidly.Controllers
 
             return View(viewModel);
         }
-
     }
 }
